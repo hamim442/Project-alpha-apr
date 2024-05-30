@@ -1,5 +1,5 @@
 from accounts.forms import LoginForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 
 # Create your tests here.
@@ -21,3 +21,8 @@ def user_login(request):
         form = LoginForm()
     context = {"form": form}
     return render(request, "accounts/login.html", context)
+
+
+def user_logout(request):
+    logout(request)
+    return redirect("login")
