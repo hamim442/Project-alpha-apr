@@ -17,8 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
+
+
+def redirect_list_view(request):
+    return redirect("list_view")
+
 
 urlpatterns = [
+    path("", redirect_list_view, name="home"),
     path("admin/", admin.site.urls),
     path("projects/", include("projects.urls")),
 ]
