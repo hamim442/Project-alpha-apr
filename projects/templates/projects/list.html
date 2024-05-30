@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Tracker</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <main>
+            <div>
+                <h1>My Projects</h1>
+                {% if list_view %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Number of tasks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for project in list_view %}
+                                <tr>
+                                    <td>{{ project.name }}</td>
+                                    <td></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>You are not assigned to any projects</p>
+                {% endif %}
+                {% comment %}  list_views in from projects/urls.py {% endcomment %}
+            </div>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>
