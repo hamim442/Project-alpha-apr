@@ -1,5 +1,5 @@
 from accounts.forms import LoginForm
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 
 # Create your tests here.
@@ -15,7 +15,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("list_view")
+                return redirect("list_projects")
 
     else:
         form = LoginForm()
