@@ -21,7 +21,7 @@ from django.shortcuts import redirect
 
 
 def redirect_list_view(request):
-    return redirect("list_view")
+    return redirect("list_projects")
 
 
 urlpatterns = [

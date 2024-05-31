@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Tracker</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <main>
+            <div>
+                <h1>{{ project_object.name }}</h1>
+                <p>{{ project_object.description }}</p>
+                <h2>Task</h2>
+                {% if task %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Assignee</th>
+                                <th>Start date</th>
+                                <th>Due date</th>
+                                <th>Is completed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tasks in task %}
+                                <tr>
+                                    <td>{{ tasks.name }}</td>
+                                    <td>{{ tasks.assignee }}</td>
+                                    <td>{{ tasks.start_date }}</td>
+                                    <td>{{ tasks.due_date }}</td>
+                                    <td>{{ tasks.is_completed | yesno:"yes,no" }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>This project has no tasks</p>
+                {% endif %}
+            </div>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>
+{% comment %} 
+ <tr>
+                                    
+                                    <th>Name</th>
+                                    <th>Assignee</th>
+                                    <th>Start Date</th>
+                                    <th>Due Date</th>
+                                    <th>Is Completed</th>
+                                </tr>
+{% endcomment %}

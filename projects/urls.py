@@ -1,4 +1,7 @@
 from django.urls import path
-from projects.views import list_view
+from projects.views import list_view, detail_view
 
-urlpatterns = [(path("", list_view, name="list_projects"))]
+urlpatterns = [
+    path("", list_view, name="list_projects"),
+    path("<int:id>/", detail_view, name="show_project"),
+]
