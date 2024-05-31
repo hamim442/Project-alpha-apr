@@ -10,19 +10,42 @@
     <body>
         <header>
             <nav>
+                <nav>
+                    <ul>
+                        {% if user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'show_my_tasks' %}">My tasks</a>   </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'list_projects' %}">My projects</a>   </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'logout' %}">Log out</a>   </a>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>   </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'signup' %}">Signup</a>   </a>
+                        </li>
+                    </ul>
+                {% endif %}
             </nav>
-        </header>
-        <main>
-            <div>
-                <h1>Create a new task</h1>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ create_task.as_p }}
-                    <button type="submit">Create</button>
-                </form>
-            </div>
-        </main>
-        <footer>
-        </footer>
-    </body>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>Create a new task</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ create_task.as_p }}
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
 </html>

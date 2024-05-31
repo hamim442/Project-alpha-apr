@@ -9,16 +9,43 @@
         <link rel="icon" href="./favicon.ico" type="image/x-icon">
     </head>
     <body>
-        <main>
-            <div>
-                <h1>Signup</h1>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button>Signup</button>
-                </form>
-            </div>
-        </main>
-        <script src="index.js"></script>
-    </body>
+        <header>
+            <nav>
+                <nav>
+                    <ul>
+                        {% if user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'show_my_tasks' %}">My tasks</a>   </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'list_projects' %}">My projects</a>   </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'logout' %}">Log out</a>   </a>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>   </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'signup' %}">Signup</a>   </a>
+                        </li>
+                    </ul>
+                {% endif %}
+            </nav>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>Signup</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Signup</button>
+            </form>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
 </html>
