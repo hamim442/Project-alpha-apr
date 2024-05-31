@@ -15,21 +15,21 @@
                     <ul>
                         {% if user.is_authenticated %}
                             <li>
-                                <a href="{% url 'show_my_tasks' %}">My tasks</a>   </a>
+                                <a href="{% url 'show_my_tasks' %}">My tasks</a>
                             </li>
                             <li>
-                                <a href="{% url 'list_projects' %}">My projects</a>   </a>
+                                <a href="{% url 'list_projects' %}">My projects</a>
                             </li>
                             <li>
-                                <a href="{% url 'logout' %}">Log out</a>   </a>
+                                <a href="{% url 'logout' %}">Log out</a>
                             </li>
                         </ul>
                     {% else %}
                         <li>
-                            <a href="{% url 'login' %}">Login</a>   </a>
+                            <a href="{% url 'login' %}">Login</a>
                         </li>
                         <li>
-                            <a href="{% url 'signup' %}">Signup</a>   </a>
+                            <a href="{% url 'signup' %}">Signup</a>
                         </li>
                     </ul>
                 {% endif %}
